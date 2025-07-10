@@ -23,13 +23,13 @@ export default function CardDeck() {
   // Filtered cards
   const [filteredCards, setFilteredCards] = useState<CardData[]>(cardData)
 
-  // Extract unique filter values
-  const tasks = [...new Set(cardData.map((card) => card.task))]
-  const objectives = [...new Set(cardData.map((card) => card.objective))]
-  const projectObjectives = [...new Set(cardData.map((card) => card.projectObjective))]
-  const evaluations = [...new Set(cardData.map((card) => card.evaluation))]
+  // Extract unique, non-empty filter values
+  const tasks = [...new Set(cardData.map((card) => card.task).filter(Boolean))]
+  const objectives = [...new Set(cardData.map((card) => card.objective).filter(Boolean))]
+  const projectObjectives = [...new Set(cardData.map((card) => card.projectObjective).filter(Boolean))]
+  const evaluations = [...new Set(cardData.map((card) => card.evaluation).filter(Boolean))]
   const allModules = [...new Set(cardData.flatMap((card) => card.module))]
-  const allDomains = [...new Set(cardData.flatMap((card) => card.domain))]
+  const allDomains = [...new Set(cardData.flatMap((card) => card.domain).filter(Boolean))]
 
   // Apply filters whenever filter states change
   useEffect(() => {
