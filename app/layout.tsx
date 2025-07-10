@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'AI4REALNET evaluation protocols',
+  description: 'AI4REALNET evaluation protocols card deck with filtering capabilities',
   generator: 'v0.dev',
 }
 
